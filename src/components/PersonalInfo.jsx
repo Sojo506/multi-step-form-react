@@ -1,6 +1,6 @@
 const PersonalInfo = () => {
   return (
-    <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white absolute top-20 rounded-lg px-4 py-6">
+    <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-4 py-6 -translate-y-20">
       <h2 className="text-p-marine-blue text-2xl font-bold mb-3">
         Personal info
       </h2>
