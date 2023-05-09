@@ -13,7 +13,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(1);
 
   return (
-    <main className="responsive_viewport font-ubuntu">
+    <main className="responsive_viewport font-ubuntu bg-n-alabaster relative">
       {/* SideBar */}
       <Steps activeStep={currentStep} />
 
