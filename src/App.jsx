@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import Steps from "./components/Steps.jsx";
+import Steps from "./components/Steps";
 import PersonalInfo from "./components/PersonalInfo";
 import SelectPlan from "./components/SelectPlan";
 import PickAddOns from "./components/PickAddOns";
@@ -15,7 +15,7 @@ function App() {
   return (
     <main className="responsive_viewport font-ubuntu">
       {/* SideBar */}
-      <Steps />
+      <Steps activeStep={currentStep} />
 
       {/* Every step */}
       {currentStep === 1 && <PersonalInfo />}
