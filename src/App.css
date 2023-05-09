@@ -3,4 +3,11 @@
   max-width: 1440px;
   height: 100vh;
   height: 100dvh;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .responsive_viewport {
+    height: auto;
+  }
 }

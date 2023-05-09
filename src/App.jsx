@@ -13,7 +13,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(1);
 
   return (
-    <main className="responsive_viewport font-ubuntu bg-n-alabaster relative">
+    <main className="responsive_viewport font-ubuntu bg-n-magnolia relative">
       {/* SideBar */}
       <Steps activeStep={currentStep} />
 
@@ -25,7 +25,7 @@ function App() {
       {currentStep === 5 && <ThankYou />}
 
       {/* BTNS */}
-      <Footer />
+      {currentStep !== 5 && <Footer currentStep={currentStep} />}
     </main>
   );
 }
