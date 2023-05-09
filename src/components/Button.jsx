@@ -14,7 +14,11 @@ const Button = ({ step, text, activeStep }) => {
 
   return (
     <>
-      <button>{step}</button>
+      <button
+        className={`border border-n-white rounded-[100%] px-3 py-1 text-n-white font-bold ${activeStep === step && "bg-p-light-blue text-p-marine-blue border-p-light-blue"}`}
+      >
+        {step}
+      </button>
 
       {dimension === "desktop" && (
         <div>
