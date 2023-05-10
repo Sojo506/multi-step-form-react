@@ -10,7 +10,12 @@ import ThankYou from "./components/ThankYou";
 import Footer from "./components/Footer";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(2);
+  // TODO delete this and create a context
+  const [options, setOptions] = useState({
+    name: "",
+
+  })
+  const [currentStep, setCurrentStep] = useState(1);
 
   return (
     <main className="responsive_viewport font-ubuntu bg-n-magnolia relative">

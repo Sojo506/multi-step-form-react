@@ -4,6 +4,7 @@ import icon_pro from "../assets/images/icon-pro.svg";
 
 const ButtonSelectPlan = ({ plan, type }) => {
   const keys = Object.keys(plan).sort((a, b) => a - b);
+  // TODO onClick event to select a plan
 
   return (
     <div className="flex flex-col gap-3 mb-4">
@@ -24,7 +25,7 @@ const ButtonSelectPlan = ({ plan, type }) => {
       </div>
 
       <div className="flex border rounded-lg border-p-purplish-blue p-3 gap-2">
-        <img src={icon_advanced} alt="icon arcade" />
+        <img src={icon_advanced} alt="icon advanced" />
         <div>
           <h4 className="capitalize text-p-marine-blue font-medium">
             {keys[1]}
@@ -39,7 +40,7 @@ const ButtonSelectPlan = ({ plan, type }) => {
       </div>
 
       <div className="flex border rounded-lg border-p-purplish-blue p-3 gap-2">
-        <img src={icon_pro} alt="icon arcade" />
+        <img src={icon_pro} alt="icon pro" />
         <div>
           <h4 className="capitalize text-p-marine-blue font-medium">
             {keys[2]}
