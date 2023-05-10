@@ -8,14 +8,10 @@ import PickAddOns from "./components/PickAddOns";
 import FinishingUp from "./components/FinishingUp";
 import ThankYou from "./components/ThankYou";
 import Footer from "./components/Footer";
+import useStep from "./hooks/useStep";
 
 function App() {
-  // TODO delete this and create a context
-  const [options, setOptions] = useState({
-    name: "",
-
-  })
-  const [currentStep, setCurrentStep] = useState(1);
+  const { currentStep } = useStep();
 
   return (
     <main className="responsive_viewport font-ubuntu bg-n-magnolia relative">
@@ -30,7 +26,7 @@ function App() {
       {currentStep === 5 && <ThankYou />}
 
       {/* BTNS */}
-      {currentStep !== 5 && <Footer currentStep={currentStep} />}
+      {currentStep !== 5 && <Footer />}
     </main>
   );
 }
