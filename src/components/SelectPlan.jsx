@@ -1,17 +1,14 @@
 import { useState } from "react";
 import styles from "../styles/selectPlan.module.css";
 import ButtonSelectPlan from "./ButtonSelectPlans";
+import useStep from "../hooks/useStep";
 
 const SelectPlan = () => {
+  const { options, handlePlanType } = useStep();
+  const { planType, planName } = options;
   const dataPlans = {
     monthly: { arcade: 9, advanced: 12, pro: 15 },
     yearly: { arcade: 90, advanced: 120, pro: 150 },
-  };
-
-  const [plan, setPlan] = useState("monthly");
-
-  const handleChange = (event) => {
-    setPlan(event.target.checked ? "yearly" : "monthly");
   };
 
   return (
@@ -23,12 +20,16 @@ const SelectPlan = () => {
         You have the option of monthly or yearly billing.
       </p>
 
-      <ButtonSelectPlan plan={dataPlans[plan]} type={plan} />
+      <ButtonSelectPlan
+        plans={dataPlans[planType]}
+        type={planType}
+        name={planName}
+      />
 
       <label className={`${styles.switch} rounded bg-n-magnolia`}>
         <span
           className={`${
-            plan === "monthly" ? "text-p-marine-blue" : "text-n-cool-gray"
+            planType === "monthly" ? "text-p-marine-blue" : "text-n-cool-gray"
           } font-medium`}
         >
           Monthly
@@ -36,12 +37,12 @@ const SelectPlan = () => {
         <input
           type="checkbox"
           className={`${styles.checkbox}`}
-          onChange={handleChange}
+          onChange={handlePlanType}
         />
         <div className={`${styles.slider}`}></div>
         <span
           className={`${
-            plan === "yearly" ? "text-p-marine-blue" : "text-n-cool-gray"
+            planType === "yearly" ? "text-p-marine-blue" : "text-n-cool-gray"
           } font-medium`}
         >
           Yearly

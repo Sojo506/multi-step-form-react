@@ -17,7 +17,7 @@ const StepProvider = ({ children }) => {
 
   function nextStep() {
     if (currentStep >= 5) return;
-    if (!options.name || !options.email || !options.phone) return;
+    //if (!options.name || !options.email || !options.phone) return;
     setCurrentStep(currentStep + 1);
   }
 
@@ -35,6 +35,17 @@ const StepProvider = ({ children }) => {
     setOptions({ ...options, [event.target.name]: event.target.value });
   }
 
+  function handlePlanType(event) {
+    setOptions({
+      ...options,
+      planType: event.target.checked ? "yearly" : "monthly",
+    });
+  }
+
+  function handlePlanName(name) {
+    setOptions({ ...options, planName: name });
+  }
+
   return (
     <StepContext.Provider
       value={{
@@ -44,6 +55,8 @@ const StepProvider = ({ children }) => {
         backStep,
         resetStep,
         handleOptions,
+        handlePlanType,
+        handlePlanName,
       }}
     >
       {children}
