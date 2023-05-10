@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/selectPlan.module.css";
+import ButtonSelectPlan from "./ButtonSelectPlans";
 
 const SelectPlan = () => {
   const dataPlans = {
@@ -7,10 +8,10 @@ const SelectPlan = () => {
     yearly: { arcade: 90, advanced: 120, pro: 150 },
   };
 
-  const [plan, setPlan] = useState(false);
+  const [plan, setPlan] = useState("monthly");
 
   const handleChange = (event) => {
-    setPlan(event.target.checked);
+    setPlan(event.target.checked ? "yearly" : "monthly");
   };
 
   return (
@@ -22,10 +23,12 @@ const SelectPlan = () => {
         You have the option of monthly or yearly billing.
       </p>
 
+      <ButtonSelectPlan plan={dataPlans[plan]} type={plan} />
+
       <label className={`${styles.switch} rounded bg-n-magnolia`}>
         <span
           className={`${
-            !plan ? "text-p-marine-blue" : "text-n-cool-gray"
+            plan === "monthly" ? "text-p-marine-blue" : "text-n-cool-gray"
           } font-medium`}
         >
           Monthly
@@ -38,7 +41,7 @@ const SelectPlan = () => {
         <div className={`${styles.slider}`}></div>
         <span
           className={`${
-            plan ? "text-p-marine-blue" : "text-n-cool-gray"
+            plan === "yearly" ? "text-p-marine-blue" : "text-n-cool-gray"
           } font-medium`}
         >
           Yearly
