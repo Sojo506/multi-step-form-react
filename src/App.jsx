@@ -16,7 +16,7 @@ function App() {
   return (
     <main className="responsive_viewport font-ubuntu bg-n-magnolia relative">
       {/* SideBar */}
-      <Steps activeStep={currentStep} />
+      <Steps />
 
       {/* Every step */}
       {currentStep === 1 && <PersonalInfo />}
@@ -26,7 +26,7 @@ function App() {
       {currentStep === 5 && <ThankYou />}
 
       {/* BTNS */}
-      {currentStep !== 5 && <Footer />}
+      <Footer />
     </main>
   );
 }
