@@ -1,4 +1,5 @@
 const PersonalInfo = () => {
+  // TODO create function to take input data
   return (
     <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-4 py-6 -translate-y-20">
       <h2 className="text-p-marine-blue text-2xl font-bold mb-3">
