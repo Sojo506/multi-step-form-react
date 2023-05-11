@@ -1,15 +1,11 @@
 import { useState } from "react";
 import styles from "../styles/selectPlan.module.css";
-import ButtonSelectPlan from "./ButtonSelectPlans";
+import ButtonSelectPlan from "./ButtonSelectPlans.jsx";
 import useStep from "../hooks/useStep";
 
 const SelectPlan = () => {
-  const { options, handlePlanType } = useStep();
-  const { planType, planName } = options;
-  const dataPlans = {
-    monthly: { arcade: 9, advanced: 12, pro: 15 },
-    yearly: { arcade: 90, advanced: 120, pro: 150 },
-  };
+  const { handlePlanType, options } = useStep();
+  const { planType } = options;
 
   return (
     <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-4 py-6 -translate-y-20">
@@ -20,11 +16,7 @@ const SelectPlan = () => {
         You have the option of monthly or yearly billing.
       </p>
 
-      <ButtonSelectPlan
-        plans={dataPlans[planType]}
-        type={planType}
-        name={planName}
-      />
+      <ButtonSelectPlan />
 
       <label className={`${styles.switch} rounded bg-n-magnolia`}>
         <span
@@ -37,6 +29,7 @@ const SelectPlan = () => {
         <input
           type="checkbox"
           className={`${styles.checkbox}`}
+          checked={planType === "monthly" ? false : true}
           onChange={handlePlanType}
         />
         <div className={`${styles.slider}`}></div>

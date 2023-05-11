@@ -15,10 +15,29 @@ const StepProvider = ({ children }) => {
     customizableProfile: false,
   });
 
-  const dataPlans = {
-    monthly: { arcade: 9, advanced: 12, pro: 15 },
-    yearly: { arcade: 90, advanced: 120, pro: 150 },
-  };
+  const dataPlans = [
+    {
+      name: "arcade",
+      price: {
+        monthly: { fee: 9, short: "mo" },
+        yearly: { fee: 90, short: "yr" },
+      },
+    },
+    {
+      name: "advanced",
+      price: {
+        monthly: { fee: 12, short: "mo" },
+        yearly: { fee: 120, short: "yr" },
+      },
+    },
+    {
+      name: "pro",
+      price: {
+        monthly: { fee: 15, short: "mo" },
+        yearly: { fee: 150, short: "yr" },
+      },
+    },
+  ];
   const dataServices = [
     {
       name: "Online service",
