@@ -81,7 +81,21 @@ const StepProvider = ({ children }) => {
   }
 
   function resetStep() {
+    setOptions({
+      name: "",
+      email: "",
+      phone: "",
+      planType: "monthly",
+      planName: "arcade",
+      onlineService: false,
+      largerStorage: false,
+      customizableProfile: false,
+    });
     setCurrentStep(1);
+  }
+
+  function defineStep(step) {
+    setCurrentStep(step);
   }
 
   function handleOptions(event) {
@@ -111,6 +125,7 @@ const StepProvider = ({ children }) => {
         nextStep,
         backStep,
         resetStep,
+        defineStep,
         handleOptions,
         handlePlanType,
         handlePlanName,
