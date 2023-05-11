@@ -4,8 +4,8 @@ import ButtonSelectPlan from "./ButtonSelectPlans.jsx";
 import useStep from "../hooks/useStep";
 
 const SelectPlan = () => {
-  const { handlePlanType, options } = useStep();
-  const { planType } = options;
+  const { handlePlanType, handlePlanName, dataPlans, options } = useStep();
+  const { planType, planName } = options;
 
   return (
     <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-4 py-6 -translate-y-20">
@@ -16,7 +16,12 @@ const SelectPlan = () => {
         You have the option of monthly or yearly billing.
       </p>
 
-      <ButtonSelectPlan />
+      <ButtonSelectPlan
+        handlePlanName={handlePlanName}
+        dataPlans={dataPlans}
+        planType={planType}
+        planName={planName}
+      />
 
       <label className={`${styles.switch} rounded bg-n-magnolia`}>
         <span

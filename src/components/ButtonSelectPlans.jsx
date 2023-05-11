@@ -1,9 +1,9 @@
-import useStep from "../hooks/useStep";
-
-const ButtonSelectPlan = () => {
-  const { handlePlanName, dataPlans, options } = useStep();
-  const { planType, planName } = options;
-
+const ButtonSelectPlan = ({
+  handlePlanName,
+  dataPlans,
+  planType,
+  planName,
+}) => {
   return (
     <div className="flex flex-col gap-3 mb-4">
       {dataPlans.length &&
