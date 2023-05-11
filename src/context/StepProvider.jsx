@@ -11,9 +11,43 @@ const StepProvider = ({ children }) => {
     planType: "monthly",
     planName: "arcade",
     onlineService: false,
-    largerStoraga: false,
+    largerStorage: false,
     customizableProfile: false,
   });
+
+  const dataPlans = {
+    monthly: { arcade: 9, advanced: 12, pro: 15 },
+    yearly: { arcade: 90, advanced: 120, pro: 150 },
+  };
+  const dataServices = [
+    {
+      name: "Online service",
+      short: "onlineService",
+      description: "Access to multiplayer games",
+      price: {
+        monthly: { fee: 1, short: "mo" },
+        yearly: { fee: 10, short: "yr" },
+      },
+    },
+    {
+      name: "Larger storage",
+      short: "largerStorage",
+      description: "Extra 1TB of cloud save",
+      price: {
+        monthly: { fee: 2, short: "mo" },
+        yearly: { fee: 20, short: "yr" },
+      },
+    },
+    {
+      name: "Customizable profile",
+      description: "Custom theme on your profile",
+      short: "customizableProfile",
+      price: {
+        monthly: { fee: 2, short: "mo" },
+        yearly: { fee: 20, short: "yr" },
+      },
+    },
+  ];
 
   function nextStep() {
     if (currentStep >= 5) return;
@@ -46,6 +80,10 @@ const StepProvider = ({ children }) => {
     setOptions({ ...options, planName: name });
   }
 
+  function handleServices(service) {
+    setOptions({ ...options, [service]: !options[service] });
+  }
+
   return (
     <StepContext.Provider
       value={{
@@ -57,6 +95,9 @@ const StepProvider = ({ children }) => {
         handleOptions,
         handlePlanType,
         handlePlanName,
+        handleServices,
+        dataPlans,
+        dataServices,
       }}
     >
       {children}
