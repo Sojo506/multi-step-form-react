@@ -21,13 +21,16 @@ const ButtonSelectService = () => {
           >
             <input
               type="checkbox"
+              checked={options[service.short]}
               onChange={() => {
                 handleServices(service.short);
               }}
             />
             <div className={`${styles.checkmark}`}></div>
             <div>
-              <p className="text-base text-p-marine-blue font-medium">{service.name}</p>
+              <p className="text-base text-p-marine-blue font-medium">
+                {service.name}
+              </p>
               <p className="text-xs text-n-cool-gray">{service.description}</p>
             </div>
             <p className="text-xs text-p-purplish-blue ">
