@@ -1,3 +1,7 @@
+import icon_arcade from "../assets/images/icon-arcade.svg";
+import icon_advanced from "../assets/images/icon-advanced.svg";
+import icon_pro from "../assets/images/icon-pro.svg";
+
 const ButtonSelectPlan = ({
   handlePlanName,
   dataPlans,
@@ -20,7 +24,13 @@ const ButtonSelectPlan = ({
             } p-4 gap-2`}
           >
             <img
-              src={`../src/assets/images/icon-${plan.name}.svg`}
+              src={
+                plan.name === "arcade"
+                  ? icon_arcade
+                  : plan.name === "advanced"
+                  ? icon_advanced
+                  : icon_pro
+              }
               alt="icon arcade"
             />
 

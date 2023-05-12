@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useResize from "../hooks/useResize";
 import useStep from "../hooks/useStep";
 
@@ -20,7 +20,7 @@ const Button = ({ step, text }) => {
         className={`border border-n-white rounded-[100%] px-3 py-1 text-n-white font-bold ${
           currentStep === step &&
           "bg-p-light-blue text-p-marine-blue border-p-light-blue"
-        }`}
+        } select-none`}
       >
         {step}
       </button>
