@@ -1,5 +1,7 @@
+import useStep from "../hooks/useStep";
+
 const PersonalInfo = () => {
-  // TODO create function to take input data
+  const { options, handleOptions, alert } = useStep();
   return (
     <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-4 py-6 -translate-y-16">
       <h2 className="text-p-marine-blue text-2xl font-bold mb-3">
@@ -10,6 +12,7 @@ const PersonalInfo = () => {
       </p>
 
       <form>
+        <p className="text-p-strawberry-red text-sm font-medium text-right">{alert}</p>
         <label
           htmlFor="name"
           className="block text-sm text-p-marine-blue tracking-tighter"
@@ -19,8 +22,12 @@ const PersonalInfo = () => {
         <input
           type="text"
           id="name"
+          name="name"
+          value={options.name}
+          maxLength={30}
           placeholder="e.g Wolfgang Amadeus"
           className="mb-4 px-3 py-2 border border-n-cool-gray rounded text-sm font-bold block w-full"
+          onChange={handleOptions}
         />
 
         <label htmlFor="email" className="block text-sm text-p-marine-blue">
@@ -29,18 +36,26 @@ const PersonalInfo = () => {
         <input
           type="email"
           id="email"
+          name="email"
+          value={options.email}
+          maxLength={30}
           placeholder="e.g wolfgangamadeus.m@gmail.com"
           className="mb-4 px-3 py-2 border border-n-cool-gray rounded text-sm font-bold block w-full"
+          onChange={handleOptions}
         />
 
         <label htmlFor="phone" className="block text-sm text-p-marine-blue">
           Phone Number
         </label>
         <input
-          type="text"
+          type="tel"
           id="phone"
+          name="phone"
+          value={options.phone}
+          maxLength={30}
           placeholder="e.g +506 12345678"
           className="mb-4 px-3 py-2 border border-n-cool-gray rounded text-sm font-bold block w-full"
+          onChange={handleOptions}
         />
       </form>
     </section>

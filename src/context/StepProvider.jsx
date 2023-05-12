@@ -3,6 +3,8 @@ import { createContext, useState } from "react";
 const StepContext = createContext();
 
 const StepProvider = ({ children }) => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
+  const [alert, setAlert] = useState("");
   const [currentStep, setCurrentStep] = useState(1);
   const [options, setOptions] = useState({
     name: "",
@@ -70,7 +72,16 @@ const StepProvider = ({ children }) => {
 
   function nextStep() {
     if (currentStep >= 5) return;
-    //if (!options.name || !options.email || !options.phone) return;
+    if (!options.name || !options.email || !options.phone) {
+      setAlert("All fields are required");
+      return;
+    }
+    if (!emailRegex.test(options.email)) {
+      setAlert("Type a correct email please");
+      return;
+    }
+
+    setAlert("");
     setCurrentStep(currentStep + 1);
   }
 
@@ -120,8 +131,9 @@ const StepProvider = ({ children }) => {
   return (
     <StepContext.Provider
       value={{
-        options,
+        alert,
         currentStep,
+        options,
         nextStep,
         backStep,
         resetStep,
