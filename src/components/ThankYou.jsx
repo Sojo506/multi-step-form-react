@@ -4,7 +4,15 @@ import icon_thank_you from "../assets/images/icon-thank-you.svg";
 const ThankYou = () => {
   return (
     <article className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-3 py-6 -translate-y-16">
-      <ConfettiExplosion />
+      <div className="flex justify-center items-center">
+        <ConfettiExplosion
+          force={0.8}
+          duration={3000}
+          particleCount={250}
+          width={1600}
+        />
+      </div>
+
       <img
         src={icon_thank_you}
         alt="icon thank you"
