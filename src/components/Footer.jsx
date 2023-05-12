@@ -33,7 +33,7 @@ const Footer = () => {
           onClick={resetStep}
           className="text-n-cool-gray p-2 rounded font-medium md:hover:text-p-strawberry-red"
         >
-          Reset
+          Redirect
         </button>
       )}
     </div>
