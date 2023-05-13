@@ -14,7 +14,7 @@ function App() {
   const { currentStep } = useStep();
 
   return (
-    <main className="responsive_viewport font-ubuntu bg-n-magnolia relative">
+    <main className="responsive_viewport font-ubuntu bg-n-magnolia relative md:p-4 md:bg-n-white rounded-md ">
       {/* SideBar */}
       <Steps />
 

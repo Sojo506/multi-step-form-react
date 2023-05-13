@@ -1,8 +1,19 @@
 .stepsContainer {
-  position: relative;
   height: 10rem;
   background-image: url("../assets/images/bg-sidebar-mobile.svg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .stepsContainer {
+    grid-column: auto;
+    grid-row: 1/3;
+    height: 100%;
+    max-width: 320px;
+    background-image: url("../assets/images/bg-sidebar-desktop.svg");
+    
+  }
 }

@@ -9,7 +9,7 @@ const ButtonSelectPlan = ({
   planName,
 }) => {
   return (
-    <div className="flex flex-col gap-3 mb-4">
+    <div className="flex flex-wrap flex-col gap-3 mb-4 md:flex-row md:gap-2 md:justify-between md:mb-8">
       {dataPlans.length &&
         dataPlans.map((plan) => (
           <div
@@ -17,11 +17,11 @@ const ButtonSelectPlan = ({
             onClick={() => {
               handlePlanName(plan.name);
             }}
-            className={`flex border rounded-lg ${
+            className={`flex md:flex-col border rounded-lg w-full md:max-w-[164px] ${
               plan.name === planName
                 ? "border-p-purplish-blue bg-n-alabaster"
                 : "border-n-cool-gray"
-            } p-4 gap-2`}
+            } p-4 gap-2 cursor-pointer hover:border-p-purplish-blue border-[2px]`}
           >
             <img
               src={
@@ -32,13 +32,14 @@ const ButtonSelectPlan = ({
                   : icon_pro
               }
               alt="icon arcade"
+              className="md:w-20 md:mb-9"
             />
 
             <div>
-              <h4 className="capitalize text-p-marine-blue font-medium">
+              <h4 className="capitalize text-p-marine-blue font-medium md:text-xl">
                 {plan.name}
               </h4>
-              <p className="text-n-cool-gray text-sm">
+              <p className="text-n-cool-gray text-sm md:text-lg">
                 ${plan.price[planType].fee}/{plan.price[planType].short}
               </p>
               {planType === "yearly" && (

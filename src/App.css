@@ -9,5 +9,7 @@
 @media screen and (min-width: 768px) {
   .responsive_viewport {
     height: auto;
+    display: grid;
+    grid-template-rows: repeat(2, 378px);
   }
 }
