@@ -2,6 +2,7 @@ import useStep from "../hooks/useStep";
 
 const PersonalInfo = () => {
   const { options, handleOptions, alert } = useStep();
+  
   return (
     <section className="max-w-[320px] m-auto left-0 right-0 bg-n-white rounded-lg px-4 py-6 -translate-y-16 md:col-start-2 md:col-end-5 md:-translate-y-0 md:max-w-[720px] md:row-start-1 md:row-end-3 md:h-full md:w-full">
       <h2 className="text-p-marine-blue text-2xl md:text-4xl font-bold mb-3">
@@ -12,14 +13,14 @@ const PersonalInfo = () => {
       </p>
 
       <form>
-        <p className="text-p-strawberry-red text-sm font-medium text-right">
-          {alert}
-        </p>
         <label
           htmlFor="name"
-          className="block text-sm md:text-base font-medium text-p-marine-blue tracking-tighter mb-1"
+          className="flex justify-between text-sm md:text-base font-medium text-p-marine-blue tracking-tighter mb-1"
         >
           Name
+          <span className="text-p-strawberry-red text-sm font-medium text-right">
+            {alert.name && alert.name}
+          </span>
         </label>
         <input
           type="text"
@@ -34,9 +35,12 @@ const PersonalInfo = () => {
 
         <label
           htmlFor="email"
-          className="block text-sm md:text-base font-medium text-p-marine-blue mb-1"
+          className="flex justify-between text-sm md:text-base font-medium text-p-marine-blue mb-1"
         >
           Email Address
+          <span className="text-p-strawberry-red text-sm font-medium text-right">
+            {alert.email && alert.email}
+          </span>
         </label>
         <input
           type="email"
@@ -51,9 +55,12 @@ const PersonalInfo = () => {
 
         <label
           htmlFor="phone"
-          className="block text-sm md:text-base font-medium text-p-marine-blue mb-1"
+          className="flex justify-between text-sm md:text-base font-medium text-p-marine-blue mb-1"
         >
           Phone Number
+          <span className="text-p-strawberry-red text-sm font-medium text-right">
+            {alert.phone && alert.phone}
+          </span>
         </label>
         <input
           type="tel"

@@ -4,7 +4,7 @@ const StepContext = createContext();
 
 const StepProvider = ({ children }) => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
-  const [alert, setAlert] = useState("");
+  const [alert, setAlert] = useState({});
   const [currentStep, setCurrentStep] = useState(1);
   const [options, setOptions] = useState({
     name: "",
@@ -71,17 +71,31 @@ const StepProvider = ({ children }) => {
   ];
 
   function nextStep() {
+    let aux = 0;
+    let currentErrors = {};
     if (currentStep >= 5) return;
-    if (!options.name || !options.email || !options.phone) {
-      setAlert("All fields are required");
-      return;
+
+    // verify personal info
+    if (!options.name) {
+      currentErrors.name = "This field is required";
+      aux++;
+    }
+    if (!options.email) {
+      currentErrors.email = "This field is required";
+      aux++;
     }
     if (!emailRegex.test(options.email)) {
-      setAlert("Type a correct email please");
-      return;
+      currentErrors.email = "Type a correct email";
+      aux++;
     }
-
-    setAlert("");
+    if (!options.phone) {
+      currentErrors.phone = "This field is required";
+      aux++;
+    }
+    
+    setAlert({ ...currentErrors });
+    if (aux) return;
+    setAlert({});
     setCurrentStep(currentStep + 1);
   }
 
