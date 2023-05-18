@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <div
       className={`w-full flex ${
-        currentStep >= 2 ? "justify-between" : "justify-end"
-      }  px-3 py-6 absolute bottom-0 bg-n-white md:row-span-1  md:col-start-2 md:col-end-5 md:max-w-[720px] md:my-0 md:mx-auto md:left-0 md:right-0`}
+        currentStep >= 2 ? "justify-between bg-n-white" : "justify-end"
+      }  px-3 py-6 absolute bottom-0 md:row-span-1  md:col-start-2 md:col-end-5 md:max-w-[720px] md:my-0 md:mx-auto md:left-0 md:right-0`}
     >
       {currentStep >= 2 && currentStep !== 5 && (
         <button
